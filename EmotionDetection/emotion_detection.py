@@ -1,19 +1,29 @@
+"""
+Emotion Detection module using IBM Watson NLP API.
+"""
+
 import requests
 
 
 def emotion_detector(text_to_analyze):
     """
-    Detect emotions from text using Watson NLP.
-    """
+    Detect emotions from text using Watson NLP EmotionPredict endpoint.
 
+    Args:
+        text_to_analyze (str): The input text to analyze.
+
+    Returns:
+        dict: Emotion scores and dominant_emotion.
+              All values are None if the API returns HTTP 400.
+    """
     url = (
-        "https://sn-watson-emotion.labs.skills.network/"
-        "v1/watson.runtime.nlp.v1/NlpService/EmotionPredict"
+        "https://sn-watson-emotion.labs.skills.network"
+        "/v1/watson.runtime.nlp.v1/NlpService/EmotionPredict"
     )
 
     headers = {
         "grpc-metadata-mm-model-id":
-        "emotion_aggregated-workflow_lang_en_stock"
+            "emotion_aggregated-workflow_lang_en_stock"
     }
 
     input_json = {

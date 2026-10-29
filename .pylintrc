@@ -1,0 +1,3 @@
+[MESSAGES CONTROL]
+# Disable invalid-name for the EmotionDetection package (required project name)
+disable=C0103
